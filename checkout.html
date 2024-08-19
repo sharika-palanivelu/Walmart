@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin-bottom: 20px;
+        }
+        .container h1 {
+            text-align: center;
+            color: #00796b;
+        }
+        .container p {
+            text-align: center;
+            color: #004d40;
+        }
+
+        .summary{
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 340px;
+            margin-bottom: 20px;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .payment-methods img {
+            width: 60px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+        .payment-methods img.selected {
+            border: 2px solid #00796b;
+        }
+        .payment-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .payment-details input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #confirm-button {
+            background-color: #00796b;
+            color: #fff;
+            padding: 12px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #confirm-button:hover {
+            background-color: #004d40;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .dropbtn {
+            background-color: #00796b;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #004d40;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius: 5px;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown-content.show {
+            display: block;
+        }
+        .logo {
+            position: absolute; /* Place the image at the top left corner */
+            top: 10px; /* Adjust this value to control the vertical positioning */
+            left: 10px; /* Adjust this value to control the horizontal positioning */
+            width: 100px; /* Set the width */
+            height: 70px; /* Set the height */
+}
+
+        #back-to-cart {
+            background-color: #ccc;
+            color: #333;
+            padding: 12px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        #back-to-cart:hover {
+            background-color: #bbb;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Summary</h1>
+    <div class="summary">
+        <p>Total Price: <span id="cart-total-price">$366.00</span></p>
+    </div>
+    <p>Choose payment method</p>
+    <img src="C:\Users\Sharika\Downloads\Walmart-Black-Logo-PNG-Vector-removebg-preview.png" alt="Payment Methods Image" class="logo">
+      
+    <div class="dropdown">
+        <button onclick="toggleDropdown()" class="dropbtn">Online Banking</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="https://canarabank.com/net-banking">CANARA BANK</a>
+            <a href="https://www.hdfcbank.com/">HDFC BANK</a>
+            <a href="https://www.axisbank.com/">AXIS BANK</a>
+            <a href="https://www.indianbank.in/">INDIAN BANK</a>
+            <a href="https://www.onlinesbi.sbi/">STATE BANK OF INDIA</a>
+        </div>
+    </div>
+    <div class="payment-methods">
+        <img src="C:\Users\Sharika\Downloads\WhatsApp Image 2024-08-16 at 14.17.59_81daa200.jpg" alt="Visa" class="selected">
+        <img src="C:\Users\Sharika\Downloads\WhatsApp_Image_2024-08-16_at_14.17.58_83511e1a-removebg-preview.png" alt="PayPal">
+        <img src="C:\Users\Sharika\Downloads\WhatsApp_Image_2024-08-16_at_14.17.58_9c8d46cf-removebg-preview.png" alt="Bitcoin">
+    </div>
+    <div class="payment-details">
+        <input type="text" placeholder="Phone Number">
+    </div>
+    <button id="confirm-button">Confirm Payment</button>
+    <div>
+        <button id="back-to-cart">Back To Cart</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const backToCartButton = document.getElementById('back-to-cart');
+        backToCartButton.addEventListener('click', function() {
+        window.location.href = 'cart.html';  // Update 'cart.html' if the file name or path is different
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        const backToCartButton = document.getElementById('confirm-button');
+        backToCartButton.addEventListener('click', function() {
+        window.location.href = 'successfull.html';  // Update 'cart.html' if the file name or path is different
+        });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+        const cartTotalPrice = document.getElementById('cart-total-price');
+
+        const totalPrice = localStorage.getItem('cartTotalPrice');
+        if (totalPrice) {
+            cartTotalPrice.textContent = `$${totalPrice}`;
+        }
+
+            // Optionally clear localStorage if you want to reset after checkout
+            // localStorage.removeItem('cartTotalPrice');
+        });
+      function toggleDropdown() {
+          document.getElementById("myDropdown").classList.toggle("show");
+      }
+      window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              for (var i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                  }
+              }
+          }
+      }
+
+      const paymentMethods = document.querySelectorAll('.payment-methods img');
+      paymentMethods.forEach(method => {
+          method.addEventListener('click', () => {
+              paymentMethods.forEach(m => m.classList.remove('selected'));
+              method.classList.add('selected');
+          });
+      });
+  </script>
+</body>
+</html>

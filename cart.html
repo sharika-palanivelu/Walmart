@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Shopping Cart</h1>
+        <div class="img">
+            <img src="C:\Users\Sharika\Downloads\png-transparent-yellow-logo-illustration-walmart-logo-grocery-store-retail-asda-stores-limited-icon-walmart-logo-miscellaneous-company-orange-thumbnail-removebg-preview.png" style="width:70px;height:70px;">
+        </div>
+
+        <div class="icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/8090/8090406.png" style="width:70px;height:70px;">
+        </div>
+
+        <ul id="cart-items">
+            <!-- Items will be dynamically added here -->
+        </ul>
+        <div class="cart-total">
+            <span>Total: $<span id="cart-total-price">0.00</span></span>
+        </div>       
+        <button id="add-products">Add Products</button>
+        <button id="proceed-to-pay">Proceed to Pay</button>
+        <p class="terms">I agree to the <a href="terms.html">Terms of Use</a>, <a href="#">Refund Policy</a>, and <a href="#">Privacy Policy</a>.</p>
+    </div>
+    <script src="cart.js"></script>
+</body>
+</html>
